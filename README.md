@@ -4,7 +4,7 @@ puppet-elasticsearch
 Description
 -----------
 
-A Puppet report handler for sending notifications to Campfire.
+A Puppet report handler for sending notifications to Elasticsearch.
 
 Requirements
 ------------
