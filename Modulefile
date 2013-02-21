@@ -1,0 +1,5 @@
+name 'puppet-elasticsearch'
+version '0.0.1'
+license 'Apache 2.0'
+summary 'A Puppet report handler for sending notifications to Elasticsearch'
+project_page 'https://github.com/arnobroekhof/puppet-elasticsearch'
