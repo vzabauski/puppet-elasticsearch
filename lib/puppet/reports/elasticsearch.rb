@@ -18,6 +18,8 @@ Puppet::Reports.register_report(:elasticsearch) do
   config = YAML.load_file(config_file)
   ELASTICSEARCH_SERVER = config[:elasticsearch_server]
   ELASTICSEARCH_PORT = config[:elasticsearch_port]
+  ELASTICSEARCH_INDEX = config[:elasticsearch_index]
+  ELASTICSEARCH_TYPE = config[:elasticsearch_type]
 
   desc <<-DESC
 Send notification of failed jobs to Elasticsearch
@@ -33,10 +35,10 @@ DESC
       hostname = self.host
       state = self.status
       runtime = Time.now.asctime
-      Tire.index 'puppet' do
+      Tire.index ELASTICSEARCH_INDEX do
         create
 
-        store :host => hostname, :state => state, :date => runtime, :type => 'report', :tags => ['run'], :message => details
+        store :host => hostname, :state => state, :date => runtime, :type => ELASTICSEARCH_TYPE, :tags => ['run'], :message => details
 
        refresh
      end
