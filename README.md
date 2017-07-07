@@ -11,15 +11,13 @@ Requirements
 
 * `tire`
 * `puppet`
-* `yajl-ruby`
 
 Installation & Usage
 --------------------
 
 1.  Install the `tinder` gem on your Puppet master
-
-        $ sudo gem install tire
-        $ sudo gem install yajl-ruby 
+        $ sudo gem install activesupport -v 4.2.9 --no-ri
+        $ sudo gem install tire -f
 
 2.  Install puppet-elsticsearch as a module in your Puppet master's module
 path.
