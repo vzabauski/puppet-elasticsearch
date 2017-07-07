@@ -15,7 +15,7 @@ Requirements
 Installation & Usage
 --------------------
 
-1.  Install the `tinder` gem on your Puppet master
+1.  Install the `tire` gem on your Puppet master
         $ sudo gem install activesupport -v 4.2.9 --no-ri
         $ sudo gem install tire -f
 
