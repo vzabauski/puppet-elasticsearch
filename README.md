@@ -69,5 +69,6 @@ License
 TODO
 ----
 - [ ] Separate message fields, make report processor form a proper structure for Elasticsearch.
+- [ ] Report processor configuration via Puppet module
 - [ ] Create a familiar dashboard as [Grafana dashboard for Prometeus data source](https://grafana.com/api/dashboards/700/images/424/image) has.
 - [ ] Migrate to an up-to-date implementation of [Elasticsearch client](https://github.com/elastic/elasticsearch-ruby).
