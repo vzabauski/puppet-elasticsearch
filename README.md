@@ -67,4 +67,4 @@ License
 TODO
 ----
 Separate message fields, make report processor form a proper structure for Elasticsearch.
-Create Grafana dashboard.
+Create a familiar dashboard as [Grafana dashboard for Prometeus data source has](https://grafana.com/api/dashboards/700/images/424/image).
