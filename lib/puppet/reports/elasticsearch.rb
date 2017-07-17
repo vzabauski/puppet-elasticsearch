@@ -16,7 +16,7 @@ Puppet::Reports.register_report(:elasticsearch) do
   config_file = File.join(File.dirname(Puppet.settings[:config]), "elasticsearch.yaml")
   raise(Puppet::ParseError, "Elasticsearch report config file #{config_file} not readable") unless File.exist?(config_file)
   config = YAML.load_file(config_file)
-  Tire::Configuration.url = config[:elasticsearch_url]
+  ENV['ELASTICSEARCH_URL'] = config[:elasticsearch_url]
   ELASTICSEARCH_INDEX = config[:elasticsearch_index]
   ELASTICSEARCH_TYPE = config[:elasticsearch_type]
 
