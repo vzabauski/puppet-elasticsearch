@@ -22,26 +22,28 @@ Installation & Usage
 2.  Install puppet-elsticsearch as a module in your Puppet master's module
 path.
 
-3.  Update the `server` and `port` variables in the
+3.  Update the `elasticsearch_url` variable in the
     `/etc/puppet/elasticsearch.yaml` with your Elasticserver, for example
-    `http://127.0.0.1`, `9200`. An example file is included.
+    `http://127.0.0.1:9200`. An example file is included.
 
-4.  Enable pluginsync and reports on your master and clients in `puppet.conf`
+4.  Enable `elasticsearch` report processor on your master `puppet.conf`.
 
         [master]
         report = true
         reports = elasticsearch
-        pluginsync = true
+5. Enable reporting in client `puppet.conf`        
+
         [agent]
         report = true
-        pluginsync = true
 
-5.  Run the Puppet client and sync the report as a plugin
+
+6.  Run the Puppet client and sync the report as a plugin
 
 Author
 ------
 
-Arno Broekhof <arnobroekhof@gmail.com>
+Forked from Arno Broekhof <arnobroekhof@gmail.com> repository.
+Further development by Valery Zabauski <dziki_jam@mail.ru>
 
 License
 -------
@@ -64,4 +66,5 @@ License
 
 TODO
 ----
-make the elasticsearch.yaml work
+Separate message fields, make report processor form a proper structure for Elasticsearch.
+Create Grafana dashboard.
