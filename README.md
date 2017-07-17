@@ -15,9 +15,11 @@ Requirements
 Installation & Usage
 --------------------
 
-1.  Install the `tire` gem on your Puppet master
-        $ sudo gem install activesupport -v 4.2.9 --no-ri
-        $ sudo gem install tire -f
+1.  Install the `tire` gem on your Puppet master:
+- `$ sudo puppetserver gem install activesupport -v 4.2.9 --no-ri`
+- `$ sudo puppetserver gem install tire -f`
+- `$ sudo systemctl restart puppetserver`
+        
 
 2.  Install puppet-elsticsearch as a module in your Puppet master's module
 path.
@@ -66,5 +68,6 @@ License
 
 TODO
 ----
-Separate message fields, make report processor form a proper structure for Elasticsearch.
-Create a familiar dashboard as [Grafana dashboard for Prometeus data source](https://grafana.com/api/dashboards/700/images/424/image) has.
+- Separate message fields, make report processor form a proper structure for Elasticsearch.
+- Create a familiar dashboard as [Grafana dashboard for Prometeus data source](https://grafana.com/api/dashboards/700/images/424/image) has.
+- Migrate to an up-to-date implementation of [Elasticsearch client](https://github.com/elastic/elasticsearch-ruby).
