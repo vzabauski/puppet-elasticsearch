@@ -1,0 +1,4 @@
+---
+:elasticsearch_url: '<%=@es_host%>:<%=@es_port%>'
+:elasticsearch_index: '<%=@es_index%>'
+:elasticsearch_type: '<%=@es_type%>'

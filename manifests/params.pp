@@ -42,24 +42,11 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class elasticsearch_reporter (
-  $es_host = '127.0.0.1',
-  $es_port = 9200,
-  $config_file   = $::elasticsearch_reporter::params::config_file,
-  $config_owner  = $::elasticsearch_reporter::params::config_owner,
-  $config_group  = $::elasticsearch_reporter::params::config_group,
-  $es_index = $::elasticsearch_reporter::params::es_index,
-  $es_type = $::elasticsearch_reporter::params::es_type,
-) inherits elasticsearch_reporter::params {
+class elasticsearch_reporter::params {
 
-file { $config_file:
-    ensure  => file,
-    owner   => $config_owner,
-    group   => $config_group,
-    mode    => '0444',
-    content => template('elasticsearch_reporter/elasticsearch.yaml.erb'),
-} ->
-
-notify {"You might need to restart Puppet Server in order changes to be applied.":}
-
+$config_file = '/etc/puppetlabs/puppet/elasticsearch.yaml'
+$config_owner = 'puppet'
+$config_group = 'puppet'
+$es_index = 'puppet'
+$es_type = 'report'
 }
