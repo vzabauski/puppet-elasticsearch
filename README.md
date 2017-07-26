@@ -1,83 +1,57 @@
-# elasticsearch_reporter
+puppet-elasticsearch
 
-#### Table of Contents
+Description
 
-1. [Description](#description)
-1. [Setup - The basics of getting started with elasticsearch_reporter](#setup)
-    * [What elasticsearch_reporter affects](#what-elasticsearch_reporter-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with elasticsearch_reporter](#beginning-with-elasticsearch_reporter)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
+A Puppet report handler for sending notifications to Elasticsearch.
 
-## Description
+Requirements
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
+tire
+puppet
+Installation & Usage
 
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
+Install the tire gem on your Puppet master:
+$ sudo puppetserver gem install activesupport -v 4.2.9 --no-ri
+$ sudo puppetserver gem install tire -f
+$ sudo systemctl restart puppetserver
+Install puppet-elsticsearch as a module in your Puppet master's module path.
 
-## Setup
+Update the elasticsearch_url variable in the /etc/puppet/elasticsearch.yaml with your Elasticserver, for example http://127.0.0.1:9200. An example file is included.
 
-### What elasticsearch_reporter affects **OPTIONAL**
+Enable elasticsearch report processor on your master puppet.conf.
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
+[master]
+report = true
+reports = elasticsearch
+Enable reporting in client puppet.conf
 
-If there's more that they should know about, though, this is the place to mention:
+ [agent]
+ report = true
+Run the Puppet client and sync the report as a plugin
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+Author
 
-### Setup Requirements **OPTIONAL**
+Forked from Arno Broekhof arnobroekhof@gmail.com repository. Further development by Valery Zabauski dziki_jam@mail.ru
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+License
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
+Author:: Arno Broekhof (arnobroekhof@gmail.com)
+Copyright:: Copyright (c) 2013 Arno Broekhof
+License:: Apache License, Version 2.0
 
-### Beginning with elasticsearch_reporter
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+    http://www.apache.org/licenses/LICENSE-2.0
 
-## Usage
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+TODO
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
-
-## Reference
-
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
-
-## Limitations
-
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
-
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
+ - [ ] Separate message fields, make report processor form a proper structure for Elasticsearch.
+ - [ ] Create a familiar dashboard as Grafana dashboard for Prometeus data source has.
+ - [ ] Migrate to an up-to-date implementation of Elasticsearch client.
