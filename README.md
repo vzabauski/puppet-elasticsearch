@@ -1,39 +1,45 @@
-puppet-elasticsearch
+# puppet-elasticsearch
 
-Description
+## Description
 
 A Puppet report handler for sending notifications to Elasticsearch.
 
-Requirements
-
+## Requirements
+ 
+ ```
 tire
 puppet
-Installation & Usage
+```
+## Installation & Usage
 
-Install the tire gem on your Puppet master:
-$ sudo puppetserver gem install activesupport -v 4.2.9 --no-ri
-$ sudo puppetserver gem install tire -f
-$ sudo systemctl restart puppetserver
-Install puppet-elsticsearch as a module in your Puppet master's module path.
+1. Install the `tire` gem on your Puppet master:
+`$ sudo puppetserver gem install activesupport -v 4.2.9 --no-ri`
+`$ sudo puppetserver gem install tire -f`
+`$ sudo systemctl restart puppetserver`
+2. Install puppet-elsticsearch as a module in your Puppet master's module path.
 
-Update the elasticsearch_url variable in the /etc/puppet/elasticsearch.yaml with your Elasticserver, for example http://127.0.0.1:9200. An example file is included.
+3. Update the elasticsearch_url variable in the /etc/puppet/elasticsearch.yaml with your Elasticserver, for example http://127.0.0.1:9200. An example file is included.
 
-Enable elasticsearch report processor on your master puppet.conf.
+4. Enable elasticsearch report processor on your master puppet.conf.
 
+```
 [master]
 report = true
 reports = elasticsearch
 Enable reporting in client puppet.conf
+```
 
+ ```
  [agent]
  report = true
-Run the Puppet client and sync the report as a plugin
+ ```
+5. Run the Puppet client and sync the report as a plugin
 
-Author
+### Author
 
 Forked from Arno Broekhof arnobroekhof@gmail.com repository. Further development by Valery Zabauski dziki_jam@mail.ru
 
-License
+### License
 
 Author:: Arno Broekhof (arnobroekhof@gmail.com)
 Copyright:: Copyright (c) 2013 Arno Broekhof
