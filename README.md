@@ -13,9 +13,11 @@ puppet
 ## Installation & Usage
 
 1. Install the `tire` gem on your Puppet master:
-`$ sudo puppetserver gem install activesupport -v 4.2.9 --no-ri`
-`$ sudo puppetserver gem install tire -f`
-`$ sudo systemctl restart puppetserver`
+```
+$ sudo puppetserver gem install activesupport -v 4.2.9 --no-ri
+$ sudo puppetserver gem install tire -f
+$ sudo systemctl restart puppetserver
+```
 2. Install puppet-elsticsearch as a module in your Puppet master's module path.
 
 3. Update the elasticsearch_url variable in the /etc/puppet/elasticsearch.yaml with your Elasticserver, for example http://127.0.0.1:9200. An example file is included.
